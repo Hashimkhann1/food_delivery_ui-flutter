@@ -17,25 +17,31 @@ class AppBarWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {},
-            child: Container(
-              padding: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: ColorRecouces.whiteColor,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 10,
-                    offset: Offset(0 , 3),
-                  )
-                ]
+            child: InkWell(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: Container(
+                padding: EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: ColorRecouces.whiteColor,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      offset: Offset(0 , 3),
+                    )
+                  ]
+                ),
+                child: Icon(CupertinoIcons.bars),
               ),
-              child: Icon(CupertinoIcons.bars),
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+            },
             child: Container(
               padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(

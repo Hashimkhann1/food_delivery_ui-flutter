@@ -1,8 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utile/colors_resource.dart';
 import 'package:food_delivery/widget/app_bar_widget/app_bar_widget.dart';
 import 'package:food_delivery/widget/custom_text_wedgit.dart';
 import 'package:food_delivery/widget/categories_widget/categories_widget.dart';
+import 'package:food_delivery/widget/newest_widget/newest_widget.dart';
+import 'package:food_delivery/widget/popular_widget/PopularWidget.dart';
+
+import '../../widget/drawer/drawer_widget.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -67,14 +72,46 @@ class HomeScreen extends StatelessWidget {
 
             // Categories
             Padding(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: CustomAppText(title: 'Categories',textColor: ColorRecouces.blackColor,textFontSize: FontWeight.bold,textSize: 20,),
-            ),
-            SizedBox(height: 12,),
-            SizedBox(height: 100,child: CategoriesWidget())
+              padding: const EdgeInsets.only(left: 4.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomAppText(title: 'Categories',textColor: ColorRecouces.blackColor,textFontWeight: FontWeight.bold,textSize: 20,),
+                  SizedBox(height: 12,),
+                  SizedBox(height: 100,child: CategoriesWidget()),
+                  SizedBox(height: 10,),
+                  CustomAppText(title: 'Popular',textSize: 20,textFontWeight: FontWeight.bold,textColor: ColorRecouces.blackColor,),
+                  PopularWidget(),
+                  const SizedBox(height: 10,),
+                  CustomAppText(title: 'Newest',textColor: ColorRecouces.blackColor,textFontWeight: FontWeight.bold,textSize: 20,),
+                  NewestWidget(),
+                ],
+              ),
+            )
+
           ],
       ),
         ),
-    ));
+    ),
+          drawer: DrawerWidget(),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 10,
+              offset: Offset(1.0,1.0)
+            )
+          ]
+    ),
+        child: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(CupertinoIcons.cart,color: ColorRecouces.lightRedColor,size: 28,),
+          backgroundColor: ColorRecouces.whiteColor,
+        ),
+    ),
+    );
   }
 }
