@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utile/colors_resource.dart';
+import 'package:food_delivery/view/cart_screen/cart_screen.dart';
 import 'package:food_delivery/widget/app_bar_widget/app_bar_widget.dart';
 import 'package:food_delivery/widget/custom_text_wedgit.dart';
 import 'package:food_delivery/widget/categories_widget/categories_widget.dart';
@@ -107,7 +108,7 @@ class HomeScreen extends StatelessWidget {
           ]
     ),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));},
           child: Icon(CupertinoIcons.cart,color: ColorRecouces.lightRedColor,size: 28,),
           backgroundColor: ColorRecouces.whiteColor,
         ),

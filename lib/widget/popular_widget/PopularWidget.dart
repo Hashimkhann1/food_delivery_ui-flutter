@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utile/colors_resource.dart';
+import 'package:food_delivery/view/item_page/item_page.dart';
 import 'package:food_delivery/widget/custom_text_wedgit.dart';
 
 
@@ -42,9 +43,12 @@ class PopularWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: Image.asset('assets/images/${imagesName[i]}',width: 146,height: 146,),
+                      InkWell(
+                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ItemPages()));},
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Image.asset('assets/images/${imagesName[i]}',width: 146,height: 146,),
+                        ),
                       ),
                       CustomAppText(title: foodName[i].toString(),textSize: 24.0,textFontWeight: FontWeight.w800,),
                       const SizedBox(height: 2,),
